@@ -33,7 +33,7 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
   if (!addedRenewal) return;
 
   const pingChannel = client.channels.cache.get(generalChannelID);
-  pingChannel.send(`Welcome <@${newUserId}> :smile: Please be sure to check out #how-to-set-up-discord for information on everything you need to know to get started in the server. If you have any other questions, be sure to let us know!\n<@&${generalRoleID}>.`);
+  pingChannel.send(`Welcome <@${newUserId}> :smile: Please be sure to check out #how-to-set-up-discord for information on everything you need to know to get started in the server. If you have any other questions, be sure to let us know!`);
 });
 
 client.on('ready', () => {

@@ -1,6 +1,7 @@
 const { Client, Intents } = require('discord.js');
 const allIntents = new Intents(Intents.ALL);
 const client = new Client({ws: { intents: allIntents }});
+const config = require('./config');
 
 const renewalID = '474064320167280642';
 const generalRoleID = '748369916075442336';
@@ -39,4 +40,4 @@ client.on('ready', () => {
   console.log('Logged in.');
 });
 
-client.login(process.env.DISC_TOKEN);
+client.login(config.TOKEN);

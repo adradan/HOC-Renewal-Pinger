@@ -42,6 +42,14 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
     const oldRoles = oldMember.roles.cache.array().map((role) => role.id);
     const newRoles = newMember.roles.cache.array().map((role) => role.id);
 
+    console.log(
+        JSON.stringify({
+            id: newUserId,
+            old: oldRoles,
+            new: newRoles,
+        })
+    );
+
     const addedRenewal = await checkRoles(oldRoles, newRoles);
     if (!addedRenewal) return;
 
@@ -51,6 +59,13 @@ client.on('guildMemberUpdate', async (oldMember, newMember) => {
 client.on('guildMemberAdd', async (member) => {
     await sleep();
     const role = member.roles.cache.find((role) => role.id == renewalID);
+
+    console.log(
+        JSON.stringify({
+            id: member.id,
+            role: member.roles.cache.array().map((role) => role.id),
+        })
+    );
     if (!role) return;
 
     await sendPing(member.id);
